@@ -1,0 +1,2958 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/13/2018 9:06:03 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PCTL0RCHRU"
+  DTS:CreatorName="CLI\rchruszcz"
+  DTS:DTSID="{666C3C63-F0C5-4E89-8868-2A5BF54AEC6C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{E050EAD0-8324-4A8F-8259-88AEBC043318}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ChassisList]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Source of Chassis Fleet"
+      DTS:DTSID="{19E2D315-095D-49B3-8C31-67FD1717F23E}"
+      DTS:ObjectName="ChassisList">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowsToSkip="1"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\FP&amp;A Data\ChassisList.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unit Number"
+              DTS:DTSID="{3B3D75E1-09F0-4194-B4B3-EC949096D84B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Org Unit"
+              DTS:DTSID="{50C3D6B2-CDD1-4836-BD38-9752B6FE8FBD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EqType"
+              DTS:DTSID="{25C41B0F-034E-4780-A369-F7B6A83BD3F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AGE IN YEARS"
+              DTS:DTSID="{15FE6508-1BF4-4804-AF5D-BF894581F162}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AGE RANGE"
+              DTS:DTSID="{AC146E31-1012-4FDC-9BFB-D81BF6CD5E25}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Group"
+              DTS:DTSID="{190F51BE-DE17-4BB1-BC93-2E14E4FF84A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Remac Refurb"
+              DTS:DTSID="{DB5C0DD7-F3E2-4C6E-AE95-8B2209842AC3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Light Type"
+              DTS:DTSID="{51B10686-3341-41D6-A7C5-B84EBAC32823}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Tire Type"
+              DTS:DTSID="{32C66E88-6904-461D-86A9-FBB22E2643B8}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FleetUsage DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8FD5220F-F2F9-4290-8F10-D074213FD3F0}"
+      DTS:ObjectName="FleetUsage DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=tie1dartdbdv01.database.windows.net;User ID=dart_admin;Initial Catalog=FleetUsage;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3Ly2Nr+O1EOAkcPzkfaDcgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAYGje7AUHVyZeWU2KZI6H9AAAAAASAAACgAAAAEAAAAAgaetub1E7e6OQxDyThuiUgAAAAdo2dXHQYTjRvoXrCumV84FWTTKA3Y/EiCUxN3KkD+4wUAAAA18T3elxa0cFz4L6WNhhDcRnyHC0</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RefurbList]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F85BEB67-C5D2-4494-9930-1B6A50B19638}"
+      DTS:ObjectName="RefurbList">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\FP&amp;A Data\RefurbList-180409.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Curr Unit#"
+              DTS:DTSID="{AE54489F-73AA-4261-AB93-F0789C7DF8AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unit#"
+              DTS:DTSID="{97002E04-B9C2-40EA-A6F2-6FD8C972EAB4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OrgUnit#"
+              DTS:DTSID="{B6EADF2F-9AE0-4701-B744-4C13B11BA825}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year "
+              DTS:DTSID="{ABB1F71C-9635-409B-A64A-C86DE79B3151}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Remac Date"
+              DTS:DTSID="{9DCDBD1F-49D4-40DA-A683-570727F160A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RFB Complete Date"
+              DTS:DTSID="{52088E60-F554-4CEA-BCB7-1F577CEF692A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created By"
+              DTS:DTSID="{B06D4037-62D0-400F-81EB-9E8F4C872652}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created Date"
+              DTS:DTSID="{E23C6534-4DC9-4E4F-A7CF-C0CAE49BA389}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RFB Year"
+              DTS:DTSID="{C30924C1-565D-469B-9D48-E8F8BD7319FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RFB Status"
+              DTS:DTSID="{8A68FBE1-7396-4F0F-B7AB-B1C0293E888F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Eq Type"
+              DTS:DTSID="{4E848C1F-5AA2-4511-BC8D-9E2CC2818ABD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Eq Desc"
+              DTS:DTSID="{B4769A9F-85EC-42B3-87DD-8FF39DF6F647}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RFB Loc"
+              DTS:DTSID="{7A235A04-3845-4CDD-B7B7-A0DDFE89DCB8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RFB Loc Name"
+              DTS:DTSID="{A7C83C7D-CC60-434D-A079-96A76FCD7037}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RFB Area"
+              DTS:DTSID="{DDF29B6D-8978-4896-A350-70312429C629}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Curr Status"
+              DTS:DTSID="{6DE69BDD-EE77-458F-93DC-A69471FD1DA8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Curr Location"
+              DTS:DTSID="{5F707366-9F25-4483-947A-AC3E222A1E19}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Curr Location Name"
+              DTS:DTSID="{F56ADF2A-11FB-40DD-B7B1-78ACAD942156}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Pool"
+              DTS:DTSID="{57CC88BF-3D4B-47AD-9E87-44371B0E9C90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 19"
+              DTS:DTSID="{36ED5BBF-B0FE-4786-A100-D30434D01BD6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chassis Data Load"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{64086385-DDD7-48AF-82D4-83E2D809E65C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chassis Data Load"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chassis Data Load\ChassisListCSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="ChassisListCSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chassis Data Load\ChassisListCSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ChassisList]"
+                  connectionManagerRefId="Package.ConnectionManagers[ChassisList]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Unit Number]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Unit Number]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Unit Number]"
+                      name="Unit Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Org Unit]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Org Unit]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Org Unit]"
+                      name="Org Unit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[EqType]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[EqType]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[EqType]"
+                      name="EqType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[AGE IN YEARS]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[AGE IN YEARS]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[AGE IN YEARS]"
+                      name="AGE IN YEARS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[AGE RANGE]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[AGE RANGE]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[AGE RANGE]"
+                      name="AGE RANGE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Group]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Group]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Group]"
+                      name="Group"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Remac Refurb]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Remac Refurb]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Remac Refurb]"
+                      name="Remac Refurb"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Light Type]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Light Type]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Light Type]"
+                      name="Light Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Tire Type]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Tire Type]"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Tire Type]"
+                      name="Tire Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Unit Number]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Unit Number" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Org Unit]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Org Unit" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[EqType]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="EqType" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[AGE IN YEARS]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="AGE IN YEARS" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[AGE RANGE]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="AGE RANGE" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Group]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Group" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Remac Refurb]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Remac Refurb" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Light Type]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Light Type" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].ExternalColumns[Tire Type]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Tire Type" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chassis Data Load\ChassisListTabLoad"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ChassisListTabLoad"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ChassisList]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chassis Data Load\ChassisListTabLoad.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FleetUsage DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[FleetUsage DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[UnitNr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="UnitNr"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[UnitNr]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[UnitNr]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[OrgUnit]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="OrgUnit"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[OrgUnit]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[OrgUnit]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[AgeYears]"
+                      cachedDataType="numeric"
+                      cachedName="AgeYears"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[AgeYears]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[AgeYears]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[AgeRange]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AgeRange"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[AgeRange]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[AgeRange]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[RemacRefurb]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RemacRefurb"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RemacRefurb]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[RemacRefurb]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[LightType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LightType"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[LightType]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[LightType]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[TireType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="TireType"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[TireType]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[TireType]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[EqType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EqType"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[EqType]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[EqType]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].Columns[Group]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Group"
+                      externalMetadataColumnId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[Group]"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[Group]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[UnitNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="UnitNr" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[OrgUnit]"
+                      dataType="wstr"
+                      length="50"
+                      name="OrgUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[AgeYears]"
+                      dataType="numeric"
+                      name="AgeYears"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[AgeRange]"
+                      dataType="wstr"
+                      length="50"
+                      name="AgeRange" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RemacRefurb]"
+                      dataType="wstr"
+                      length="50"
+                      name="RemacRefurb" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[LightType]"
+                      dataType="wstr"
+                      length="50"
+                      name="LightType" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[TireType]"
+                      dataType="wstr"
+                      length="50"
+                      name="TireType" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[EqType]"
+                      dataType="wstr"
+                      length="50"
+                      name="EqType" />
+                    <externalMetadataColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[Group]"
+                      dataType="wstr"
+                      length="50"
+                      name="Group" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chassis Data Load\ChassisListTabLoad.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chassis Data Load\ChassisListTabLoad.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chassis Data Load\ChassisListTabLoad.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chassis Data Load\ChassisListTabLoad.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chassis Data Load\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[Unit Number]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Unit Number"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Unit Number]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[Org Unit]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Org Unit"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Org Unit]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[EqType]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EqType"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[EqType]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[AGE IN YEARS]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AGE IN YEARS"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[AGE IN YEARS]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[AGE RANGE]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AGE RANGE"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[AGE RANGE]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[Group]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Group"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Group]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[Remac Refurb]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Remac Refurb"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Remac Refurb]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[Light Type]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Light Type"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Light Type]" />
+                    <inputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input].Columns[Tire Type]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Tire Type"
+                      lineageId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Tire Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[UnitNr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[UnitNr]"
+                      name="UnitNr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Unit Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[OrgUnit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[OrgUnit]"
+                      name="OrgUnit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Org Unit]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[EqType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[EqType]"
+                      name="EqType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[EqType]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[AgeYears]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[AgeYears]"
+                      name="AgeYears"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[AGE IN YEARS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[AgeRange]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[AgeRange]"
+                      name="AgeRange"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[AGE RANGE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[Group]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[Group]"
+                      name="Group"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Group]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[RemacRefurb]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[RemacRefurb]"
+                      name="RemacRefurb"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Remac Refurb]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[LightType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[LightType]"
+                      name="LightType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Light Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[TireType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output].Columns[TireType]"
+                      name="TireType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output].Columns[Tire Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chassis Data Load.Paths[Data Conversion Output]"
+              endId="Package\Chassis Data Load\ChassisListTabLoad.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Chassis Data Load\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Chassis Data Load.Paths[Flat File Source Output]"
+              endId="Package\Chassis Data Load\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Chassis Data Load\ChassisListCSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Refurb Data Load"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1E8B9064-27AA-45B7-8191-4E77B94D77B6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Refurb Data Load"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Refurb Data Load\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Curr Unit#]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Curr Unit#"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Unit#]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Unit#]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Unit#"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Unit#]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[OrgUnit#]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OrgUnit#"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[OrgUnit#]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Year ]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Year "
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Year ]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Remac Date]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Remac Date"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Remac Date]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[RFB Complete Date]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RFB Complete Date"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Complete Date]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[RFB Area]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RFB Area"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Area]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Curr Status]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Curr Status"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Status]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Curr Location]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Curr Location"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Location]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Curr Location Name]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Curr Location Name"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Location Name]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Pool]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Pool"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Pool]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Created By]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Created By"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Created By]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Created Date]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Created Date"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Created Date]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[RFB Year]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RFB Year"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Year]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Eq Type]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Eq Type"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Eq Type]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[Eq Desc]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Eq Desc"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Eq Desc]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[RFB Status]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RFB Status"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Status]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[RFB Loc]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RFB Loc"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Loc]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input].Columns[RFB Loc Name]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RFB Loc Name"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Loc Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrUnitNr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrUnitNr]"
+                      name="CurrUnitNr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Unit#]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[UnitNr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[UnitNr]"
+                      name="UnitNr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Unit#]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[OrgUnitNr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[OrgUnitNr]"
+                      name="OrgUnitNr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[OrgUnit#]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[Year]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Year ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[ReMacDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[ReMacDate]"
+                      name="ReMacDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Remac Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBCompleteDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBCompleteDate]"
+                      name="RFBCompleteDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Complete Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBArea]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBArea]"
+                      name="RFBArea"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Area]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrStatus]"
+                      name="CurrStatus"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Status]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrLocation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrLocation]"
+                      name="CurrLocation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Location]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrLocationName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrLocationName]"
+                      name="CurrLocationName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Location Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[Pool]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[Pool]"
+                      name="Pool"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Pool]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CreatedBy]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CreatedBy]"
+                      name="CreatedBy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Created By]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CreatedDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Created Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBYear]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBYear]"
+                      name="RFBYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Year]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[EqType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[EqType]"
+                      name="EqType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Eq Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[EqDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[EqDesc]"
+                      name="EqDesc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Eq Desc]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBStatus]"
+                      name="RFBStatus"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Status]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBLoc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBLoc]"
+                      name="RFBLoc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Loc]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBLoctnName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBLoctnName]"
+                      name="RFBLoctnName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Loc Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Refurb Data Load\RefurbListCSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="RefurbListCSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Refurb Data Load\RefurbListCSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RefurbList]"
+                  connectionManagerRefId="Package.ConnectionManagers[RefurbList]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Unit#]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Curr Unit#]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Unit#]"
+                      name="Curr Unit#"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Unit#]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Unit#]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Unit#]"
+                      name="Unit#"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[OrgUnit#]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[OrgUnit#]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[OrgUnit#]"
+                      name="OrgUnit#"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Year ]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Year ]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Year ]"
+                      name="Year "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Remac Date]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Remac Date]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Remac Date]"
+                      name="Remac Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Complete Date]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Complete Date]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Complete Date]"
+                      name="RFB Complete Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Created By]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Created By]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Created By]"
+                      name="Created By"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Created Date]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Created Date]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Created Date]"
+                      name="Created Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Year]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Year]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Year]"
+                      name="RFB Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Status]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Status]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Status]"
+                      name="RFB Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Eq Type]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Eq Type]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Eq Type]"
+                      name="Eq Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Eq Desc]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Eq Desc]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Eq Desc]"
+                      name="Eq Desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Loc]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Loc]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Loc]"
+                      name="RFB Loc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Loc Name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Loc Name]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Loc Name]"
+                      name="RFB Loc Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Area]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Area]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[RFB Area]"
+                      name="RFB Area"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Status]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Curr Status]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Status]"
+                      name="Curr Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Location]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Curr Location]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Location]"
+                      name="Curr Location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Location Name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Curr Location Name]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Curr Location Name]"
+                      name="Curr Location Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Pool]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Pool]"
+                      length="50"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].Columns[Pool]"
+                      name="Pool"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Curr Unit#]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Curr Unit#" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Unit#]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Unit#" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[OrgUnit#]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="OrgUnit#" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Year ]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Year " />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Remac Date]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Remac Date" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Complete Date]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="RFB Complete Date" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Created By]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Created By" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Created Date]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Created Date" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Year]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="RFB Year" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Status]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="RFB Status" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Eq Type]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Eq Type" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Eq Desc]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Eq Desc" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Loc]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="RFB Loc" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Loc Name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="RFB Loc Name" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[RFB Area]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="RFB Area" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Curr Status]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Curr Status" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Curr Location]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Curr Location" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Curr Location Name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Curr Location Name" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Pool]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Pool" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Column 19" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Refurb Data Load\RefurbListTabLoad"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="RefurbListTabLoad"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[RefurbList]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Refurb Data Load\RefurbListTabLoad.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FleetUsage DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[FleetUsage DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="IgnoreFailure"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[CurrUnitNr]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CurrUnitNr"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CurrUnitNr]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrUnitNr]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[UnitNr]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="UnitNr"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[UnitNr]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[UnitNr]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[OrgUnitNr]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="OrgUnitNr"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[OrgUnitNr]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[OrgUnitNr]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[ReMacDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ReMacDate"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[ReMacDate]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[ReMacDate]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[RFBCompleteDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RFBCompleteDate"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBCompleteDate]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBCompleteDate]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[RFBArea]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RFBArea"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBArea]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBArea]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[CurrStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CurrStatus"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CurrStatus]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrStatus]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[CurrLocation]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CurrLocation"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CurrLocation]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrLocation]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[CurrLocationName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CurrLocationName"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CurrLocationName]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CurrLocationName]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[CreatedBy]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CreatedBy"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CreatedBy]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CreatedDate"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[RFBYear]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RFBYear"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBYear]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBYear]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[EqType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EqType"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[EqType]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[EqType]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[EqDesc]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EqDesc"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[EqDesc]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[EqDesc]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[RFBStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RFBStatus"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBStatus]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBStatus]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[RFBLoc]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RFBLoc"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBLoc]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBLoc]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[RFBLoctnName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RFBLoctnName"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBLoctnName]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[RFBLoctnName]" />
+                    <inputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].Columns[Pool]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Pool"
+                      externalMetadataColumnId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[Data Conversion 1.Pool]"
+                      lineageId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output].Columns[Pool]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CurrUnitNr]"
+                      dataType="wstr"
+                      length="10"
+                      name="CurrUnitNr" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[UnitNr]"
+                      dataType="wstr"
+                      length="10"
+                      name="UnitNr" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[OrgUnitNr]"
+                      dataType="wstr"
+                      length="10"
+                      name="OrgUnitNr" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="wstr"
+                      length="4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[ReMacDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="ReMacDate" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBCompleteDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="RFBCompleteDate" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBArea]"
+                      dataType="wstr"
+                      length="50"
+                      name="RFBArea" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CurrStatus]"
+                      dataType="wstr"
+                      length="50"
+                      name="CurrStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CurrLocation]"
+                      dataType="wstr"
+                      length="50"
+                      name="CurrLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CurrLocationName]"
+                      dataType="wstr"
+                      length="50"
+                      name="CurrLocationName" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      dataType="wstr"
+                      length="50"
+                      name="CreatedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="wstr"
+                      length="50"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBYear]"
+                      dataType="wstr"
+                      length="50"
+                      name="RFBYear" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[EqType]"
+                      dataType="wstr"
+                      length="50"
+                      name="EqType" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[EqDesc]"
+                      dataType="wstr"
+                      length="50"
+                      name="EqDesc" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBStatus]"
+                      dataType="wstr"
+                      length="50"
+                      name="RFBStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBLoc]"
+                      dataType="wstr"
+                      length="50"
+                      name="RFBLoc" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[RFBLoctnName]"
+                      dataType="wstr"
+                      length="50"
+                      name="RFBLoctnName" />
+                    <externalMetadataColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input].ExternalColumns[Data Conversion 1.Pool]"
+                      dataType="wstr"
+                      length="50"
+                      name="Data Conversion 1.Pool" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Refurb Data Load\RefurbListTabLoad.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Refurb Data Load\RefurbListTabLoad.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Refurb Data Load\RefurbListTabLoad.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Refurb Data Load\RefurbListTabLoad.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Refurb Data Load.Paths[Data Conversion Output]"
+              endId="Package\Refurb Data Load\RefurbListTabLoad.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Refurb Data Load\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Refurb Data Load.Paths[Flat File Source Output]"
+              endId="Package\Refurb Data Load\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Refurb Data Load\RefurbListCSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{142116D5-1A0D-459C-AC09-21E3011FF095}"
+      DTS:From="Package\Chassis Data Load"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Refurb Data Load" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Chassis Data Load"
+          TopLeft="154,137" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Refurb Data Load"
+          TopLeft="158,258" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="237.75,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79"
+              Start="0,0"
+              End="0,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chassis Data Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Chassis Data Load\ChassisListCSV"
+          TopLeft="81.5,96.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Chassis Data Load\ChassisListTabLoad"
+          TopLeft="737,97" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Chassis Data Load\Data Conversion"
+          TopLeft="422,97" />
+        <EdgeLayout
+          Id="Package\Chassis Data Load.Paths[Flat File Source Output]"
+          TopLeft="229.5,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192.5,0"
+              Start="0,0"
+              End="185,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="185,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chassis Data Load.Paths[Data Conversion Output]"
+          TopLeft="578,118">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="159,0"
+              Start="0,0"
+              End="151.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="151.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chassis Data Load\ChassisListTabLoad">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Refurb Data Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Refurb Data Load\RefurbListCSV"
+          TopLeft="109,72" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Refurb Data Load\Data Conversion 1"
+          TopLeft="446,76" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Refurb Data Load\RefurbListTabLoad"
+          TopLeft="774,74" />
+        <EdgeLayout
+          Id="Package\Refurb Data Load.Paths[Flat File Source Output]"
+          TopLeft="254,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192,0"
+              Start="0,0"
+              End="184.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="184.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Refurb Data Load.Paths[Data Conversion Output]"
+          TopLeft="611,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163,0"
+              Start="0,0"
+              End="155.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="155.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Refurb Data Load\RefurbListTabLoad">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
